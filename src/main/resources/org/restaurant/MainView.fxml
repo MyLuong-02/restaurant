@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+
+<TabPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.restaurant.controller.MainController" prefWidth="800" prefHeight="600" fx:id="tabPane">
+    <tabs>
+        <Tab text="Customers" fx:id="customerTab"/>
+        <Tab text="Orders" fx:id="ordersTab"/>
+        <Tab text="Items" fx:id="itemTab"/>
+        <Tab text="Deliverymen" fx:id="deliverymenTab"/>
+    </tabs>
+</TabPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.restaurant.controller.ItemController">
+    <VBox spacing="10" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0"
+          AnchorPane.topAnchor="0">
+        <padding>
+            <Insets top="10" bottom="10" left="10" right="10"/>
+        </padding>
+
+        <!-- Button to show the form -->
+        <HBox spacing="10">
+            <Button text="Add Item" onAction="#showAddItemForm"/>
+            <Button text="Update Item" onAction="#showUpdateItemForm"/>
+            <Button fx:id="btnDelete" text="Delete Item" onAction="#deleteItem"/>
+        </HBox>
+
+        <!-- Form Controls - initially hidden -->
+        <HBox fx:id="formBox" spacing="10" visible="false" managed="false">
+            <TextField fx:id="name" promptText="Item Name"/>
+            <TextField fx:id="price" promptText="Item Price"/>
+            <Button fx:id="btnAdd" text="Add Item" onAction="#addItem" visible="false" managed="false"/>
+            <Button fx:id="btnUpdate" text="Update Item Information" onAction="#updateItem" visible="false" managed="false"/>
+            <Button text="Cancel" onAction="#hideItemForm"/>
+        </HBox>
+
+        <!-- Search and Sort -->
+        <HBox spacing="10">
+            <TextField fx:id="search" promptText="Search by name or Price"/>
+            <ComboBox fx:id="cmbFilterBy" promptText="Sort by" prefWidth="100"/>
+            <CheckBox fx:id="ascending" text="Ascending" selected="true"/>
+            <Button text="Search" onAction="#searchItems"/>
+        </HBox>
+
+        <!-- Item Table -->
+        <TableView fx:id="itemsTable" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="cId" text="Item ID" prefWidth="50"/>
+                <TableColumn fx:id="cName" text="Item Name" prefWidth="150"/>
+                <TableColumn fx:id="cPrice" text="Item Price" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

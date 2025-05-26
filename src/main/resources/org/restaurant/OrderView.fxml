@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.restaurant.controller.OrderController">
+
+    <VBox spacing="10" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <!-- Search and Filter -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="Search:"/>
+            <TextField fx:id="search" promptText="Search orders..."/>
+            <Label text="Filter by:"/>
+            <ComboBox fx:id="cmbFilterBy" prefWidth="120"/>
+            <CheckBox fx:id="ascending" text="Ascending"/>
+            <Button text="Search" onAction="#searchOrders"/>
+        </HBox>
+
+        <!-- Table of Orders -->
+        <TableView fx:id="itemsTable" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="cId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="cItem" text="Item" prefWidth="100"/>
+                <TableColumn fx:id="cTotalPrice" text="Total Price" prefWidth="100"/>
+                <TableColumn fx:id="cCustomer" text="Customer" prefWidth="100"/>
+                <TableColumn fx:id="cDeliveryman" text="Deliveryman" prefWidth="100"/>
+                <TableColumn fx:id="cCreatedDate" text="Created Date" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <!-- Action Buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Add Order" onAction="#showAddOrderForm"/>
+            <Button text="Update Order" onAction="#showUpdateOrderForm"/>
+            <Button fx:id="btnDelete" text="Delete Order" onAction="#deleteOrder"/>
+        </HBox>
+
+        <!-- Order Form -->
+        <HBox fx:id="formBox" spacing="20" visible="false" managed="false">
+            <VBox spacing="10">
+                <Label text="Item:"/>
+                <ComboBox fx:id="cmbItem" prefWidth="200"/>
+                <Label text="Customer:"/>
+                <ComboBox fx:id="cmbCustomer" prefWidth="200"/>
+                <Label text="Deliveryman:"/>
+                <ComboBox fx:id="cmbDeliveryman" prefWidth="200"/>
+            </VBox>
+            <VBox spacing="10">
+                <Label text="Total Price:"/>
+                <TextField fx:id="totalPrice" promptText="e.g., 29.99"/>
+                <Label text="Created Date:"/>
+                <DatePicker fx:id="createdDate"/>
+                <HBox spacing="10">
+                    <Button fx:id="btnAdd" text="Add" onAction="#addOrder" visible="false" managed="false"/>
+                    <Button fx:id="btnUpdate" text="Update" onAction="#updateOrder" visible="false" managed="false"/>
+                    <Button text="Cancel" onAction="#hideOrderForm"/>
+                </HBox>
+            </VBox>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.restaurant.controller.CustomerController">
+    <VBox spacing="10" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+
+        <!-- Button to show the form -->
+        <HBox spacing="10">
+            <Button text="Add Customer" onAction="#showAddForm"/>
+            <Button text="Update Customer" onAction="#showUpdateForm"/>
+        </HBox>
+
+        <!-- Form Controls - initially hidden -->
+        <HBox fx:id="formContainer" spacing="10" visible="false" managed="false">
+            <TextField fx:id="txtName" promptText="Name"/>
+            <TextField fx:id="txtAddress" promptText="Address"/>
+            <TextField fx:id="txtPhone" promptText="Phone"/>
+            <Button fx:id="btnSubmitAdd" text="Add Customer" onAction="#addCustomer" visible="false" managed="false"/>
+            <Button fx:id="btnSubmitUpdate" text="Update Information" onAction="#updateCustomer" visible="false" managed="false"/>
+            <Button text="Cancel" onAction="#hideForm"/>
+        </HBox>
+
+        <!-- Search and Sort -->
+        <HBox spacing="10">
+            <TextField fx:id="txtSearch" promptText="Search by name or phone"/>
+            <ComboBox fx:id="cmbSortBy" promptText="Sort by" prefWidth="100"/>
+            <CheckBox fx:id="chkAscending" text="Ascending" selected="true"/>
+            <Button text="Search" onAction="#searchCustomer"/>
+        </HBox>
+
+        <!-- Customer Table -->
+        <TableView fx:id="table" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colName" text="Name" prefWidth="150"/>
+                <TableColumn fx:id="colAddress" text="Address" prefWidth="200"/>
+                <TableColumn fx:id="colPhone" text="Phone" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
